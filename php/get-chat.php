@@ -30,6 +30,9 @@
             $output .= '<div class="text">No messages are available. Once you send message they will appear here.</div>';
         }
         echo $output;
+        $sql = "UPDATE messages SET status = 1 WHERE incoming_msg_id = '$incoming_id'";
+        $query = mysqli_query($conn, $sql);
+        
     }else{
         header("location: ../login.php");
     }
